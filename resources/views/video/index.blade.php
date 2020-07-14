@@ -23,7 +23,7 @@
             <tbody>
                 @foreach($videos as $video)
                 <tr>
-                    <th scope="row"></th>
+                    <th scope="row">{{ $video->id }}</th>
                     <td>{{ $video->nombre }}</td>
                     <td>{{ $video->genero }}</td>
                     <td>{{ $video->duracion }}</td>

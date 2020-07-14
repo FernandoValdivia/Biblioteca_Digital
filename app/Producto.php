@@ -11,4 +11,10 @@ class Producto extends Model
     public function videos() {
         return $this->hasMany('App\Video');
     }
+    //
+    protected $fillable=[
+        'nombre',
+        'descripcion'
+        
+    ];
 }
