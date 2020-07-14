@@ -17,8 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('principal');
 
+Route::resource('libros','LibroController');
+Route::resource('categorias','CategoriaController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', 'AdminController@index')->name('admin');
+
+
