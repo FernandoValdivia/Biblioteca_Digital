@@ -36,3 +36,13 @@ body {
 .login-link {
     color: #0099FF;
 }
+.formulario {
+    margin-top: 20px;
+    border-radius: 5px;
+    background: #EDF2F4;
+    padding: 30px;
+}
+.formulario textarea {
+    max-height: 150px;
+    min-height: 150px;
+}

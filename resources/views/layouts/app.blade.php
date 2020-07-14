@@ -41,16 +41,20 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="libros">Libros</a>
-                            </li>
+                            
                             @auth
                                 @if(Auth::user()->role == 'admin')
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('video.index') }}">Videos</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('libros.index') }}">Libros</a>
+                                    </li>
                                 @endif
                             @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Libros</a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Videos</a>
                                 </li>

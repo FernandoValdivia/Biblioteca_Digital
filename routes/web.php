@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('principal');
 
-Route::resource('libros','LibroController');
+
 Route::resource('categorias','CategoriaController');
 
 Auth::routes();
@@ -29,4 +29,5 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', 'AdminController@index')->name('admin');
     Route::resource('video', 'VideoController');
+    Route::resource('libros','LibroController');
 });

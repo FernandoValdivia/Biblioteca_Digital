@@ -7,7 +7,10 @@
     </div>
 </header>
 <section class="main">
-    <div class="container">
+    <div class="container"><br>
+        <div class="boton">
+            <a role="button" href="{{ route('video.create') }}" class="btn btn-primary">Añadir videos</a>
+        </div><br>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -18,6 +21,7 @@
                     <th scope="col">Precio</th>
                     <th scope="col">Categoria</th>
                     <th scope="col">Producto</th>
+                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +34,13 @@
                     <td>{{ $video->precio }}</td>
                     <td>{{ $video->categoria->nombre }}</td>
                     <td>{{ $video->producto->nombre }}</td>
+                    <td><a href="">Editar video</a>
+                        <form action="" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"><i class="fas fa-trash-alt"></i></button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

@@ -1,61 +1,60 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
-<div class="col-sm-12">
-    <h1 class="display-3">Libros</h1>   
-    
-    <a href="libros/create"><h4>Agregar nuevo Libro</h4></a> 
-  <table class="table table-striped">
+<header>
+    <div class="container">
+        <h1>Libros</h1>
+    </div>
+</header> 
+<section class="main">
+    <div class="container"><br>
+        <div class="boton">   
+          <a role="button" href="libros/create" class="btn btn-primary">Agregar nuevo Libro</a>
+        </div><br>
+        <table class="table table-striped">
 
-    <thead>
+          <thead>
                 <tr>
-                <th>id</th>
-                    <th>nombre</th>
-                    <th>Editorial</th>
-                    <th>Fecha Publicacion</th>
-                    <th>Edicion</th>
-                    <th>Genero</th>
-                    <th>Descripcion</th>
-                    <th>Autor</th>
-                    <th>Precio</th>
-                    <th>Id_categoria</th>
+                    <th scope="col">id</th>
+                    <th scope="col">nombre</th>
+                    <th scope="col">Editorial</th>
+                    <th scope="col">Fecha Publicacion</th>
+                    <th scope="col">Edicion</th>
+                    <th scope="col">Genero</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Id_categoria</th>
                   
                     <th colspan="2" ><strong>Acciones</strong>
                 </tr>
             </thead>
             <tbody>
             @foreach($libros as $libro)
-        <tr>
-            <td>{{$libro->id_producto}}</td>
-            <td>{{$libro->nombre}}</td>
-            <td>{{$libro->editorial}}</td>
-            <td>{{$libro->fechaPublicacion}}</td>
-            <td>{{$libro->edicion}}</td>
-            <td>{{$libro->genero}}</td>
-            <td>{{$libro->descripcion}}</td>
-            <td>{{$libro->autor}}</td>
-            <td>{{$libro->precio}}</td>
-            <td>{{$libro->id_categoria}}</td>
-            
-            <td>
-                
+              <tr>
+                <th scope="row">{{$libro->id_producto}}</th>
+                <td>{{$libro->nombre}}</td>
+                <td>{{$libro->editorial}}</td>
+                <td>{{$libro->fechaPublicacion}}</td>
+                <td>{{$libro->edicion}}</td>
+                <td>{{$libro->genero}}</td>
+                <td>{{$libro->descripcion}}</td>
+                <td>{{$libro->autor}}</td>
+                <td>{{$libro->precio}}</td>
+                <td>{{$libro->id_categoria}}</td>
+                <td>
                 <a href="{{ route('libros.edit',$libro->id)}}" class="btn btn-primary">Edit</a>
-            </td>
-            <td>
                 <form action="{{ route('libros.destroy', $libro->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-  </table>
-
-
-<div>
-</div>
+                </td>
+              </tr>
+            @endforeach
+            </tbody>
+          </table>
+      <div>
+</section>
 @endsection
 

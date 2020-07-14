@@ -2,6 +2,7 @@
 @extends('layouts.app')<!--es el estilo general de la pagina-->
 
 @section('content')<!--este contiene al main que esta declarado en layout (esta en views - layout)-->
+
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
     <h1 class="display-3">Agregar Libro</h1>

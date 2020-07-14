@@ -7,6 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Video extends Model
 {
     protected $table = 'videos';
+    
+    protected $fillable=[
+        'nombre',
+        'descripcion',
+        'resumen',
+        'genero',
+        'duracion',
+        'precio',
+        'categoria_id',
+        'producto_id',
+    ];
 
     // Relacion de muchos a uno
     public function categoria() {

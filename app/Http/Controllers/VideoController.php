@@ -27,7 +27,10 @@ class VideoController extends Controller
      */
     public function create()
     {
-        //
+        $categorias = \App\Categoria::all();
+        return view('video.create', [
+            'categorias' => $categorias
+        ]);
     }
 
     /**
@@ -38,8 +41,31 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $validate = $this->validate($request, [
+            'nombre' => 'required',
+            'discripcion' => 'required',
+            'resumen' => 'required',
+            'genero' => 'required',
+            'duracion' => 'required',
+            'precio' => 'required',
+            'categoria_id' => 'required',
+        ]);
+        
+        $video = DB::table('videos')->insert([
+            'nombre' => $request->input('nombre'),
+            'descripcion' => $request->input('descripcion'),
+            'resumen' => $request->input('resumen'),
+            'genero' => $request->input('genero'),
+            'duracion' => $request->input('duracion'),
+            'precio' => $request->input('precio'),
+            'categoria_id' => $request->input('categoria_id'),
+            'producto_id' => 2,
+        ]);
+
+        return redirect()->route('video.index');
     }
+
 
     /**
      * Display the specified resource.
