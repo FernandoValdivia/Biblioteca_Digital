@@ -44,9 +44,17 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Libros</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Videos</a>
-                            </li>
+                            @auth
+                                @if(Auth::user()->role == 'admin')
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('video.index') }}">Videos</a>
+                                    </li>
+                                @endif
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Videos</a>
+                                </li>
+                            @endauth
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Audios</a>
                             </li>
@@ -77,10 +85,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}">Mi perfil</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}">Configuración</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Cerrar sesión') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
