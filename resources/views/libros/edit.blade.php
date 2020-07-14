@@ -73,7 +73,7 @@
             </select>
         </div>
         <div class="form-group">
-	        <button type="submit" class="boton_personalizado" name="modificar">Modificar </button>
+	        <button type="submit" class="btn btn-info" name="modificar">Modificar </button>
         <div>
         </form>
 

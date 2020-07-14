@@ -3,7 +3,9 @@
 @section('content')
 <div class="row">
 <div class="col-sm-12">
-    <h1 class="display-3">Libros</h1>    
+    <h1 class="display-3">Libros</h1>   
+    
+    <a href="libros/create"><h4>Agregar nuevo Libro</h4></a> 
   <table class="table table-striped">
 
     <thead>
